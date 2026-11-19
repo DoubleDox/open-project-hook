@@ -3,7 +3,6 @@
   "type": "module",
   "dependencies": {
     "@json-editor/json-editor": "^2.15.2",
-    "axios": "^1.4.0",
     "easy-json-schema": "^0.0.2-beta",
     "express": "^4.19.2"
   }

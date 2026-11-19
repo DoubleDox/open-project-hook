@@ -88,6 +88,9 @@
         "git_host": {
             "type": "string"
         },
+        "git_token": {
+            "type": "string"
+        },
         "users": {
             "type": "object",
             "format":"table",

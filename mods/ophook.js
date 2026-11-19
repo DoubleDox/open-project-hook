@@ -1,4 +1,4 @@
-import axios from 'axios';
+import http from '../api/http.js';
 import op from '../api/open-project.js';
 
 //subject
@@ -156,7 +156,7 @@ export default async (app) => {
             let link = config.op_host + '/work_packages/' + b.id + '/activity'
             let str = header + '\n' + b.subject + '\n' + link + ' ' + notify;
             const content = app.messengers[target].prepareMessage(project, str);
-            await axios.post(project.webhook, content);
+            await http.post(project.webhook, content);
         }
 
         res.status(200).send('ok');

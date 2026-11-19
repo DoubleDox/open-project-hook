@@ -1,4 +1,4 @@
-import axios from 'axios';
+import http from '../api/http.js';
 import fs from 'fs';
 import path from 'path';
 import op from '../api/open-project.js';
@@ -22,7 +22,7 @@ export default async function doAction(config, context)
                     const match = mergeRequest.match(regex);
                     const request_id = match[2];
                     console.log('requesting contents of mr ' + request_id);
-                    const resp = await axios.get(config.git_host + '/api/v4/projects/' + project.git_id + '/merge_requests/' + request_id + '/changes', { headers: { 'PRIVATE-TOKEN': 'xzVt4EP_4quzfwUjgW_Q' } });
+                    const resp = await http.get(config.git_host + '/api/v4/projects/' + project.git_id + '/merge_requests/' + request_id + '/changes', { headers: { 'PRIVATE-TOKEN': config.git_token } });
                     //resp.data.diff_refs.head_sha - last commit in branch
                     //resp.data.diff_refs.base_sha   |
                     //resp.data.diff_refs.start_sha  |- base commit in develop to compared with?
